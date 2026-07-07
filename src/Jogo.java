@@ -11,6 +11,10 @@ public class Jogo {
     public int anoLancamento;
 
 
+    public Jogo() {
+
+    }
+
     public Jogo(Long id, String titulo, String genero, double preco, String plataforma, boolean disponivel, String descricao, int anoLancamento) {
 
         this.ID = id;
