@@ -1,4 +1,5 @@
-import java.sql.Connection;
+import Model.Jogo;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,10 +14,10 @@ public class Main {
             System.out.println("\n=================================");
             System.out.println("    GERENCIADOR DE JOGOS 🎮     ");
             System.out.println("=================================");
-            System.out.println("1. Cadastrar Novo Jogo");
+            System.out.println("1. Cadastrar Novo Model.Jogo");
             System.out.println("2. Listar Todos os Jogos");
-            System.out.println("3. Atualizar Preço de um Jogo");
-            System.out.println("4. Deletar um Jogo");
+            System.out.println("3. Atualizar Preço de um Model.Jogo");
+            System.out.println("4. Deletar um Model.Jogo");
             System.out.println("0. Sair do Sistema");
             System.out.print("Escolha uma opção: ");
 
@@ -79,7 +80,7 @@ public class Main {
                     Jogo jogoDoBanco = dao.BuscaporID(idAlterar);
 
                     if (jogoDoBanco != null) {
-                        System.out.println("Jogo encontrado: " + jogoDoBanco.getTitulo() + " (Preço atual: R$ " + jogoDoBanco.getPreco() + ")");
+                        System.out.println("Model.Jogo encontrado: " + jogoDoBanco.getTitulo() + " (Preço atual: R$ " + jogoDoBanco.getPreco() + ")");
                         System.out.print("Digite o NOVO preço: R$ ");
                         double novoPreco = scanner.nextDouble();
                         scanner.nextLine(); // Limpa buffer
@@ -88,7 +89,7 @@ public class Main {
                         jogoDoBanco.setPreco(novoPreco);
                         dao.atualizar(jogoDoBanco);
                     } else {
-                        System.out.println("Jogo não encontrado com o ID informado.");
+                        System.out.println("Model.Jogo não encontrado com o ID informado.");
                     }
                     break;
 
@@ -119,7 +120,7 @@ public class Main {
 
       /* // --- TESTANDO O CREATE (SALVAR) ---
         System.out.println("Inserindo um novo jogo...");
-        Jogo novoJogo = new Jogo();
+        Model.Jogo novoJogo = new Model.Jogo();
         novoJogo.setTitulo("Horinzon 1  ");
         novoJogo.setGenero("Aventura");
         novoJogo.setPreco(49.99);
@@ -127,7 +128,7 @@ public class Main {
 
         // Atributos públicos
         novoJogo.plataforma = "PC/ps4/ps5";
-        novoJogo.descricao = "Jogo com aloy";
+        novoJogo.descricao = "Model.Jogo com aloy";
         novoJogo.anoLancamento = 2018;
 
         dao.salvar(novoJogo);*/
@@ -137,10 +138,10 @@ public class Main {
    /*     Long idParaAlterar = 2L;
 
         // 1. Buscamos o jogo completo do jeito que ele está hoje no banco
-       Jogo jogoDoBanco = dao.BuscaporID(idParaAlterar);
+       Model.Jogo jogoDoBanco = dao.BuscaporID(idParaAlterar);
 
         if (jogoDoBanco != null) {
-            System.out.println("Jogo original encontrado: " + jogoDoBanco.getTitulo());
+            System.out.println("Model.Jogo original encontrado: " + jogoDoBanco.getTitulo());
             System.out.println("Preço antigo: R$ " + jogoDoBanco.getPreco());
 
             // 2. Modificamos APENAS o que a gente quer mudar
@@ -150,12 +151,12 @@ public class Main {
             dao.atualizar(jogoDoBanco);
 
         } else {
-            System.out.println("Jogo não encontrado para atualização.");
+            System.out.println("Model.Jogo não encontrado para atualização.");
         }*/
 
       /*  // --- TESTANDO DELETAR
         System.out.println("--- Jogos antes da exclusão ---");
-        for (Jogo j : dao.ListaTodos()) {
+        for (Model.Jogo j : dao.ListaTodos()) {
             System.out.println("ID: " + j.getId() + " | Título: " + j.getTitulo());
         }
 

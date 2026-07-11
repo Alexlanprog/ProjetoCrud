@@ -1,3 +1,7 @@
+package Services;
+
+import Model.Jogo;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +16,7 @@ public class JogoDao {
         String sql = "INSERT INTO jogos (titulo, genero, preco, plataforma, disponivel, descricao, ano_lancamento) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
         try (Connection conn = ConexaoBD.Conectar();
-            PreparedStatement stmt = conn.prepareStatement(sql)){
+             PreparedStatement stmt = conn.prepareStatement(sql)){
 
             stmt.setString(1, jogo.getTitulo());
             stmt.setString(2, jogo.getGenero());
@@ -23,10 +27,10 @@ public class JogoDao {
             stmt.setInt(7 , jogo.anoLancamento);
 
             stmt.executeUpdate();
-            System.out.println("Jogo cadastrado com sucesso!");
+            System.out.println("Model.Jogo cadastrado com sucesso!");
         }
         catch(SQLException e){
-            System.out.println("Erro ao cadastrar Jogo!");
+            System.out.println("Erro ao cadastrar Model.Jogo!");
             e.printStackTrace();
         }
     }
@@ -48,13 +52,13 @@ public class JogoDao {
 
             int linhasAfetadas = stmt.executeUpdate();
             if (linhasAfetadas > 0) {
-                System.out.println("Jogo atualizado com sucesso!");
+                System.out.println("Model.Jogo atualizado com sucesso!");
             } else {
                 System.out.println("Nenhum jogo encontrado com o ID informado.");
             }
 
         }catch(SQLException e){
-            System.out.println("Erro ao atualizar Jogo!");
+            System.out.println("Erro ao atualizar Model.Jogo!");
             e.printStackTrace();
         }
 
@@ -144,7 +148,7 @@ public class JogoDao {
 
             int linhasAfetadas = stmt.executeUpdate();
             if (linhasAfetadas > 0) {
-                System.out.println("Jogo excluído com sucesso!");
+                System.out.println("Model.Jogo excluído com sucesso!");
             } else {
                 System.out.println("Nenhum jogo encontrado com o ID informado.");
             }
